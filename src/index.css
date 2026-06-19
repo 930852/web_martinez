@@ -1,0 +1,132 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D90429;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff0a3a;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 4.5rem;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 3.5rem;
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+/* CTA Button Base */
+.cta-button {
+  @apply px-8 py-4 font-semibold text-white uppercase tracking-wider transition-all duration-300 relative overflow-hidden;
+  background-color: #D90429;
+  border: 2px solid #D90429;
+}
+
+.cta-button:hover {
+  background-color: transparent;
+  color: #D90429;
+  box-shadow: inset 0 0 20px rgba(217, 4, 41, 0.5);
+}
+
+.cta-button:active {
+  transform: scale(0.98);
+}
+
+/* Glass Effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Red Accent Line */
+.red-accent {
+  background: linear-gradient(90deg, transparent, #D90429, transparent);
+  height: 2px;
+  width: 100%;
+}
+
+/* Fade In Animation on Scroll */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-up {
+  animation: revealUp 0.8s ease-out forwards;
+}
+
+/* Content Container */
+.content-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .content-container {
+    padding: 0 1.5rem;
+  }
+}
