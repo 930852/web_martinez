@@ -514,17 +514,42 @@
           </p>
         </div>
         <div class="reveal">
-          <div class="mx-auto w-full max-w-3xl rounded-lg shadow-2xl border border-zinc-800 overflow-hidden">
-            <iframe
-              class="w-full max-w-3xl mx-auto aspect-video rounded-lg shadow-2xl border border-zinc-800 block mt-6"
-              src="https://www.youtube.com/embed/dYuPb9GtIS0"
-              title="Mira la magia en acción"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            ></iframe>
+          <div class="video-player-container mx-auto w-full max-w-3xl aspect-video rounded-lg shadow-2xl border border-zinc-800 relative overflow-hidden group mb-12">
+            <video
+              id="zenitVideo"
+              class="w-full h-full object-cover"
+              loop
+              muted
+              playsinline
+              autoplay
+              src="./video_promo.mp4"
+            ></video>
+            <div id="zenitVideoOverlay" class="absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-300 group-hover:bg-black/20">
+              <button id="zenitPlayButton" type="button" class="flex items-center justify-center w-20 h-20 rounded-full bg-white/10 border border-white/20 shadow-lg backdrop-blur-md hover:bg-white/20 transition-all duration-300">
+                <svg class="w-10 h-10 text-white" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="4" fill="rgba(255,255,255,0.05)"/>
+                  <path d="M26 20L46 32L26 44V20Z" fill="currentColor"/>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
+      <script>
+        const zenitVideo = document.getElementById('zenitVideo');
+        const zenitPlayButton = document.getElementById('zenitPlayButton');
+        const zenitVideoOverlay = document.getElementById('zenitVideoOverlay');
+
+        if (zenitPlayButton && zenitVideo) {
+          zenitPlayButton.addEventListener('click', () => {
+            zenitVideo.muted = false;
+            zenitVideo.play();
+            if (zenitVideoOverlay) {
+              zenitVideoOverlay.classList.add('opacity-0', 'pointer-events-none');
+            }
+          });
+        }
+      </script>
     </section>
 
     <!-- Spectacles Section -->
