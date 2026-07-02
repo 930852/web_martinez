@@ -501,6 +501,29 @@
       </div>
     </section>
 
+    <!-- Video Section -->
+    <section class="py-24 bg-black border-t border-gray-900">
+      <div class="content-container">
+        <div class="mb-12 reveal text-center">
+          <h2 class="text-white font-black mb-4">
+            MIRA LA MAGIA<br />
+            <span class="text-red-600">EN ACCIÓN</span>
+          </h2>
+          <p class="text-gray-400 text-lg font-light max-w-2xl mx-auto">
+            Descubre el ritmo y el misterio de la experiencia con este avance exclusivo.
+          </p>
+        </div>
+        <div class="reveal">
+          <div class="mx-auto w-full max-w-3xl rounded-lg shadow-lg border border-zinc-800 overflow-hidden">
+            <video controls class="w-full h-auto object-cover">
+              <source src="./video_promo.mp4" type="video/mp4" />
+              Tu navegador no soporta reproducción de video.
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Spectacles Section -->
     <section id="espectaculos" class="py-32 bg-black border-t border-gray-900">
       <div class="content-container">
@@ -550,7 +573,7 @@
               </div>
               <div class="flex justify-center">
                 <div class="rounded-lg overflow-hidden border-2 border-red-600 red-glow">
-                  <img src="./magia_cerca.jpg" alt="Magia de Cerca" class="w-full max-w-xl mx-auto h-auto object-contain" />
+                  <img src="./magia_cerca.JPG" alt="Magia de Cerca" class="w-full max-w-xl mx-auto h-auto object-contain" />
                 </div>
               </div>
             </div>
@@ -753,8 +776,8 @@
           </div>
 
           <!-- Contact Form -->
-          <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="lg:col-span-2 space-y-8 reveal">
-            <!-- Note: Replace YOUR_FORM_ID with your Formspree ID from https://formspree.io -->
+          <form id="contactForm" action="https://formsubmit.co/cesarmartinezlapuerta@yahoo.com" method="POST" class="lg:col-span-2 space-y-8 reveal">
+            <!-- Note: Formsubmit will send submissions to cesarmartinezlapuerta@yahoo.com -->
             <!-- Name -->
             <div>
               <label class="block text-white font-bold uppercase text-xs tracking-widest mb-3">
@@ -968,25 +991,6 @@
           nav.classList.remove('scrolled');
         }
         lastScroll = currentScroll;
-      });
-
-      // Contact Form Submission
-      const contactForm = document.getElementById('contactForm');
-      const successMessage = document.getElementById('successMessage');
-
-      contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Show success message
-        successMessage.classList.remove('hidden');
-
-        // Reset form
-        contactForm.reset();
-
-        // Hide message after 5 seconds
-        setTimeout(() => {
-          successMessage.classList.add('hidden');
-        }, 5000);
       });
 
       // Smooth scroll for anchor links
