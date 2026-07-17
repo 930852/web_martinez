@@ -29,113 +29,42 @@
       }
 
       body {
-        <!-- Video Section -->
-        <section class="py-24 bg-black border-t border-gray-900">
-          <div class="content-container">
-            <div class="mb-12 reveal text-center">
-              <h2 class="text-white font-black mb-4">
-                MIRA LA MAGIA<br />
-                <span class="text-red-600">EN ACCIÓN</span>
-              </h2>
-              <p class="text-gray-400 text-lg font-light max-w-2xl mx-auto">
-                Descubre el ritmo y el misterio de la experiencia con este avance exclusivo.
-              </p>
-            </div>
-            <div class="reveal">
-              <div class="w-full max-w-3xl mx-auto aspect-video rounded-lg shadow-2xl border border-zinc-800 relative overflow-hidden group mb-12">
-                <video
-                  id="zenitVideo"
-                  class="w-full h-full object-cover"
-                  src="./video_promo.mp4"
-                  loop
-                  muted
-                  playsinline
-                  autoplay
-                ></video>
-                <div id="zenitVideoOverlay" class="absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-300 group-hover:bg-black/20">
-                  <button id="zenitPlayButton" type="button" class="flex flex-col items-center justify-center gap-3">
-                    <span class="flex items-center justify-center w-20 h-20 rounded-full bg-black/40 border border-white/20 shadow-2xl backdrop-blur-md hover:bg-black/30 transition-all duration-300">
-                      <svg class="w-10 h-10 text-white" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="4" fill="rgba(255,255,255,0.05)"/>
-                        <path d="M26 20L46 32L26 44V20Z" fill="currentColor"/>
-                      </svg>
-                    </span>
-                    <span class="text-white uppercase text-xs tracking-widest font-semibold">VER EN GRANDE</span>
-                  </button>
-                </div>
-              </div>
-              <div id="videoModal" class="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
-                <div class="relative w-full max-w-4xl h-[calc(100vh-4rem)] md:h-[calc(100vh-6rem)] rounded-3xl overflow-hidden border border-zinc-800 bg-black">
-                  <button id="videoModalClose" type="button" class="absolute top-4 right-4 z-20 w-12 h-12 rounded-full bg-black/70 border border-zinc-700 text-white flex items-center justify-center hover:bg-black/80 transition">
-                    <span class="sr-only">Cerrar video</span>
-                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <line x1="18" y1="6" x2="6" y2="18" />
-                      <line x1="6" y1="6" x2="18" y2="18" />
-                    </svg>
-                  </button>
-                  <iframe
-                    id="videoModalIframe"
-                    class="w-full h-full"
-                    src=""
-                    title="Video mágico"
-                    allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-              </div>
-            </div>
-          </div>
-          <script>
-            const zenitVideo = document.getElementById('zenitVideo');
-            const zenitPlayButton = document.getElementById('zenitPlayButton');
-            const zenitVideoOverlay = document.getElementById('zenitVideoOverlay');
-            const videoModal = document.getElementById('videoModal');
-            const videoModalIframe = document.getElementById('videoModalIframe');
-            const videoModalClose = document.getElementById('videoModalClose');
+        font-family: 'Inter', sans-serif;
+        background-color: #000000;
+        color: #ffffff;
+      }
 
-            const openVideoModal = () => {
-              if (zenitVideo) {
-                zenitVideo.pause();
-              }
-              if (videoModalIframe) {
-                videoModalIframe.src = 'https://www.youtube.com/embed/dYuPb9GtIS0?autoplay=1&rel=0';
-              }
-              if (videoModal) {
-                videoModal.classList.remove('opacity-0', 'pointer-events-none');
-                videoModal.classList.add('opacity-100');
-              }
-            };
+      h1, h2, h3, .font-serif {
+        font-family: 'Playfair Display', serif;
+      }
 
-            const closeVideoModal = () => {
-              if (videoModalIframe) {
-                videoModalIframe.src = '';
-              }
-              if (videoModal) {
-                videoModal.classList.add('opacity-0', 'pointer-events-none');
-                videoModal.classList.remove('opacity-100');
-              }
-              if (zenitVideo) {
-                zenitVideo.play();
-              }
-            };
+      /* Botón de Llamada a la Acción (CTA) */
+      .cta-button {
+        display: inline-block;
+        background-color: #DC143C;
+        color: #ffffff;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        font-size: 0.875rem;
+      }
 
-            if (zenitPlayButton) {
-              zenitPlayButton.addEventListener('click', openVideoModal);
-            }
+      .cta-button:hover {
+        background-color: #b30f30;
+        box-shadow: 0 0 20px rgba(220, 20, 60, 0.6);
+        transform: translateY(-2px);
+      }
 
-            if (videoModalClose) {
-              videoModalClose.addEventListener('click', closeVideoModal);
-            }
+      /* Efectos de Brillo Rojo */
+      .red-glow {
+        box-shadow: 0 0 25px rgba(220, 20, 60, 0.4);
+      }
 
-            if (videoModal) {
-              videoModal.addEventListener('click', (event) => {
-                if (event.target === videoModal) {
-                  closeVideoModal();
-                }
-              });
-            }
-          </script>
-        </section>
+      .red-glow-lg {
+        box-shadow: 0 0 50px rgba(220, 20, 60, 0.6);
       }
 
       @keyframes slideInRight {
@@ -510,45 +439,73 @@
             <span class="text-red-600">EN ACCIÓN</span>
           </h2>
           <p class="text-gray-400 text-lg font-light max-w-2xl mx-auto">
-            Descubre el ritmo y el misterio de la experiencia con este avance exclusivo.
+            Descubre el ritmo y el misterio de la experiencia con este avance exclusivo. Pasa el ratón por encima para reproducir.
           </p>
         </div>
         <div class="reveal">
-          <div class="video-player-container mx-auto w-full max-w-3xl aspect-video rounded-lg shadow-2xl border border-zinc-800 relative overflow-hidden group mb-12">
+          <!-- Contenedor del reproductor interactivo -->
+          <div class="video-player-container mx-auto w-full max-w-3xl aspect-video rounded-lg shadow-2xl border border-zinc-800 relative overflow-hidden group mb-12 cursor-pointer">
             <video
               id="zenitVideo"
               class="w-full h-full object-cover"
               loop
               muted
               playsinline
-              autoplay
-              src="./video_promo.mp4"
+              src="./video_promo.MP4"
             ></video>
-            <div id="zenitVideoOverlay" class="absolute inset-0 bg-black/40 flex items-center justify-center transition-opacity duration-300 group-hover:bg-black/20">
-              <button id="zenitPlayButton" type="button" class="flex items-center justify-center w-20 h-20 rounded-full bg-white/10 border border-white/20 shadow-lg backdrop-blur-md hover:bg-white/20 transition-all duration-300">
-                <svg class="w-10 h-10 text-white" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="32" cy="32" r="30" stroke="currentColor" stroke-width="4" fill="rgba(255,255,255,0.05)"/>
-                  <path d="M26 20L46 32L26 44V20Z" fill="currentColor"/>
-                </svg>
-              </button>
-            </div>
+            
+            <!-- Botón flotante para activar/desactivar audio -->
+            <button id="zenitAudioButton" type="button" class="absolute bottom-4 right-4 z-10 flex items-center gap-2 bg-black/70 border border-white/10 px-4 py-2 rounded-full shadow-xl backdrop-blur-md hover:bg-black/90 hover:scale-105 transition-all duration-300 text-white text-xs font-semibold tracking-widest uppercase">
+              <svg id="audioIcon" class="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 24 24">
+                <!-- Icono de silencio por defecto -->
+                <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zm-9.27 2L3.27 6.73 9.54 13H4v-2h3l5-5v5.54l1.73 1.73C13.84 13.1 14 12.57 14 12c0-2.21-1.79-4-4-4-.57 0-1.1.16-1.57.43L4.73 5.23zM12 4L9.91 6.09 12 8.18V4z"/>
+              </svg>
+              <span id="audioText">Activar Sonido</span>
+            </button>
           </div>
         </div>
       </div>
-      <script>
-        const zenitVideo = document.getElementById('zenitVideo');
-        const zenitPlayButton = document.getElementById('zenitPlayButton');
-        const zenitVideoOverlay = document.getElementById('zenitVideoOverlay');
 
-        if (zenitPlayButton && zenitVideo) {
-          zenitPlayButton.addEventListener('click', () => {
-            zenitVideo.muted = false;
-            zenitVideo.play();
-            if (zenitVideoOverlay) {
-              zenitVideoOverlay.classList.add('opacity-0', 'pointer-events-none');
-            }
-          });
-        }
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const zenitVideo = document.getElementById('zenitVideo');
+          const zenitAudioButton = document.getElementById('zenitAudioButton');
+          const audioIcon = document.getElementById('audioIcon');
+          const audioText = document.getElementById('audioText');
+          const videoContainer = document.querySelector('.video-player-container');
+
+          if (videoContainer && zenitVideo) {
+            // Reproducir al pasar el ratón por encima del contenedor
+            videoContainer.addEventListener('mouseenter', () => {
+              zenitVideo.play().catch(error => {
+                console.log("Reproducción prevenida por políticas del navegador:", error);
+              });
+            });
+
+            // Pausar al retirar el ratón del contenedor
+            videoContainer.addEventListener('mouseleave', () => {
+              zenitVideo.pause();
+            });
+          }
+
+          if (zenitAudioButton && zenitVideo) {
+            // Control alterno de volumen en clic
+            zenitAudioButton.addEventListener('click', (e) => {
+              e.stopPropagation(); // Evita interferir con el hover
+              if (zenitVideo.muted) {
+                zenitVideo.muted = false;
+                audioText.textContent = 'Quitar Sonido';
+                // Cambia a icono con ondas de sonido activas
+                audioIcon.innerHTML = '<path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>';
+              } else {
+                zenitVideo.muted = true;
+                audioText.textContent = 'Activar Sonido';
+                // Cambia de nuevo a icono silenciado
+                audioIcon.innerHTML = '<path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77zm-9.27 2L3.27 6.73 9.54 13H4v-2h3l5-5v5.54l1.73 1.73C13.84 13.1 14 12.57 14 12c0-2.21-1.79-4-4-4-.57 0-1.1.16-1.57.43L4.73 5.23zM12 4L9.91 6.09 12 8.18V4z"/>';
+              }
+            });
+          }
+        });
       </script>
     </section>
 
@@ -655,33 +612,21 @@
 
             <!-- Rows -->
             <div class="grid grid-cols-3 gap-6 p-8 border-b border-gray-800 hover:bg-gray-950 transition-colors">
-              <div class="text-gray-400">11 de julio 2026</div>
-              <div class="text-white font-semibold hover:text-red-600 transition-colors">Agoncillo</div>
-              <div class="text-gray-500">La Rioja</div>
+              <div class="text-gray-400">12 de Septiembre 2026</div>
+              <div class="text-white font-semibold hover:text-red-600 transition-colors">Venue / Event Name</div>
+              <div class="text-gray-500">City / Province</div>
             </div>
 
             <div class="grid grid-cols-3 gap-6 p-8 border-b border-gray-800 hover:bg-gray-950 transition-colors">
-              <div class="text-gray-400">15 de julio 2026</div>
-              <div class="text-white font-semibold hover:text-red-600 transition-colors">Abarca de Campos</div>
-              <div class="text-gray-500">Palencia</div>
-            </div>
-
-            <div class="grid grid-cols-3 gap-6 p-8 border-b border-gray-800 hover:bg-gray-950 transition-colors">
-              <div class="text-gray-400">18 de julio 2026</div>
-              <div class="text-white font-semibold hover:text-red-600 transition-colors">Balcón de las Fuentes</div>
-              <div class="text-gray-500">Zaragoza</div>
-            </div>
-
-            <div class="grid grid-cols-3 gap-6 p-8 border-b border-gray-800 hover:bg-gray-950 transition-colors">
-              <div class="text-gray-400">2 de agosto 2026</div>
-              <div class="text-white font-semibold hover:text-red-600 transition-colors">Acered</div>
-              <div class="text-gray-500">Zaragoza</div>
+              <div class="text-gray-400">20 de Septiembre 2026</div>
+              <div class="text-white font-semibold hover:text-red-600 transition-colors">Venue / Event Name</div>
+              <div class="text-gray-500">City / Province</div>
             </div>
 
             <div class="grid grid-cols-3 gap-6 p-8 hover:bg-gray-950 transition-colors">
-              <div class="text-gray-400">23 de agosto 2026</div>
-              <div class="text-white font-semibold hover:text-red-600 transition-colors">Castejón</div>
-              <div class="text-gray-500">Zaragoza</div>
+              <div class="text-gray-400">5 de Octubre 2026</div>
+              <div class="text-white font-semibold hover:text-red-600 transition-colors">Venue / Event Name</div>
+              <div class="text-gray-500">City / Province</div>
             </div>
           </div>
         </div>
@@ -691,51 +636,31 @@
           <div class="border border-gray-800 p-8 rounded-lg hover:border-red-600 transition-colors hover:bg-gray-950">
             <div class="flex justify-between items-start mb-4">
               <div>
-                <p class="text-white font-bold text-lg">11 de julio 2026</p>
-                <p class="text-gray-400 text-sm">La Rioja</p>
+                <p class="text-white font-bold text-lg">12 de Septiembre 2026</p>
+                <p class="text-gray-400 text-sm">City / Province</p>
               </div>
             </div>
-            <p class="text-gray-400">Agoncillo</p>
+            <p class="text-gray-400">Venue / Event Name</p>
           </div>
 
           <div class="border border-gray-800 p-8 rounded-lg hover:border-red-600 transition-colors hover:bg-gray-950">
             <div class="flex justify-between items-start mb-4">
               <div>
-                <p class="text-white font-bold text-lg">15 de julio 2026</p>
-                <p class="text-gray-400 text-sm">Palencia</p>
+                <p class="text-white font-bold text-lg">20 de Septiembre 2026</p>
+                <p class="text-gray-400 text-sm">City / Province</p>
               </div>
             </div>
-            <p class="text-gray-400">Abarca de Campos</p>
+            <p class="text-gray-400">Venue / Event Name</p>
           </div>
 
           <div class="border border-gray-800 p-8 rounded-lg hover:border-red-600 transition-colors hover:bg-gray-950">
             <div class="flex justify-between items-start mb-4">
               <div>
-                <p class="text-white font-bold text-lg">18 de julio 2026</p>
-                <p class="text-gray-400 text-sm">Zaragoza</p>
+                <p class="text-white font-bold text-lg">5 de Octubre 2026</p>
+                <p class="text-gray-400 text-sm">City / Province</p>
               </div>
             </div>
-            <p class="text-gray-400">Balcón de las Fuentes</p>
-          </div>
-
-          <div class="border border-gray-800 p-8 rounded-lg hover:border-red-600 transition-colors hover:bg-gray-950">
-            <div class="flex justify-between items-start mb-4">
-              <div>
-                <p class="text-white font-bold text-lg">2 de agosto 2026</p>
-                <p class="text-gray-400 text-sm">Zaragoza</p>
-              </div>
-            </div>
-            <p class="text-gray-400">Acered</p>
-          </div>
-
-          <div class="border border-gray-800 p-8 rounded-lg hover:border-red-600 transition-colors hover:bg-gray-950">
-            <div class="flex justify-between items-start mb-4">
-              <div>
-                <p class="text-white font-bold text-lg">23 de agosto 2026</p>
-                <p class="text-gray-400 text-sm">Zaragoza</p>
-              </div>
-            </div>
-            <p class="text-gray-400">Castejón</p>
+            <p class="text-gray-400">Venue / Event Name</p>
           </div>
         </div>
       </div>
@@ -805,7 +730,6 @@
 
           <!-- Contact Form -->
           <form id="contactForm" action="https://formsubmit.co/cesarmartinezlapuerta@yahoo.com" method="POST" class="lg:col-span-2 space-y-8 reveal">
-            <!-- Note: Formsubmit will send submissions to cesarmartinezlapuerta@yahoo.com -->
             <!-- Name -->
             <div>
               <label class="block text-white font-bold uppercase text-xs tracking-widest mb-3">
